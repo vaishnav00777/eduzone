@@ -52,6 +52,30 @@
     </section>
     <section class="about-section" id="about"><div class="about-icon">✨</div><div><span class="eyebrow" data-i18n="OURPROMISE">OUR PROMISE</span><h2 data-i18n="aboutTitle">Learning should be within everyone's reach.</h2><p data-i18n="aboutText">EduZone is being built as a free, student-friendly portal. Our goal is to make reliable learning resources easier to discover, whatever your class, course or exam goal.</p></div></section>
   </main>
+  <section class="admin-section" id="admin">
+    <div class="admin-entry"><div><span class="eyebrow">SITE MANAGEMENT</span><h2>Admin Dashboard</h2><p>Manage the resource catalogue saved in this browser.</p></div><button class="btn secondary" id="adminToggle" type="button" aria-expanded="false">Open admin panel</button></div>
+    <div class="admin-panel" id="adminPanel" hidden>
+      <div class="admin-warning">Local demo only: edits are stored in this browser, not shared with other visitors. This panel has no secure login.</div>
+      <form id="resourceForm" class="admin-form">
+        <h3 id="formHeading">Add a learning resource</h3>
+        <input type="hidden" id="editResourceId">
+        <label>Resource title<input id="adminTitle" required maxlength="100" placeholder="e.g. Physics revision notes"></label>
+        <div class="admin-form-row">
+          <label>Learning level<select id="adminLevel"><option value="school">School (Classes 1–12)</option><option value="college">College & diploma</option><option value="exam">Competitive exams</option></select></label>
+          <label>Subject<select id="adminSubject"><option value="general">General learning</option><option value="science">Science</option><option value="maths">Mathematics</option></select></label>
+        </div>
+        <label>Short description<input id="adminDescription" required maxlength="220" placeholder="What will students find here?"></label>
+        <label>Official resource URL<input id="adminUrl" type="url" required placeholder="https://example.org/resource"></label>
+        <div class="admin-form-row">
+          <label>Resource type<input id="adminType" maxlength="70" placeholder="Official resource / Open textbook"></label>
+          <label>Icon (emoji)<input id="adminIcon" maxlength="8" value="📘"></label>
+        </div>
+        <div class="admin-actions"><button class="btn primary" type="submit" id="saveResource">Save resource</button><button class="btn secondary" type="button" id="cancelEdit" hidden>Cancel edit</button></div>
+        <p class="admin-status" id="adminStatus" role="status" aria-live="polite"></p>
+      </form>
+      <div class="admin-list-wrap"><div class="admin-list-heading"><h3>Current resources</h3><span id="adminResourceCount"></span></div><div id="adminResourceList" class="admin-resource-list"></div></div>
+    </div>
+  </section>
   <footer><a class="brand footer-brand" href="#"><span class="brand-mark">E</span><span>EduZone</span></a><p data-i18n="footer">Learn. Practice. Grow. — A free study portal for everyone.</p><span>© <span id="year"></span> EduZone</span></footer>
-  <script src="app.js"></script>
+  <script src="app.js"></script>\n  <script src="admin.js"></script>
 </body></html>
