@@ -30,7 +30,7 @@ module.exports = async function handler(req, res) {
     }
     const cookies = typeof upstream.headers.getSetCookie === "function" ? upstream.headers.getSetCookie() : [];
     if (cookies.length) {
-      res.setHeader("Set-Cookie", cookies.map(cookie => cookie.replace(/;\\s*Domain=[^;]+/i, "")));
+      res.setHeader("Set-Cookie", cookies.map(cookie => cookie.replace(/;\s*Domain=[^;]+/i, "")));
     }
     if (upstream.status === 204 || upstream.status === 304) return res.end();
     const responseBody = Buffer.from(await upstream.arrayBuffer());
