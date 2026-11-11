@@ -22,6 +22,13 @@ This is a static site. Connect the repository to Vercel with:
 ## Resource and copyright policy
 EduZone links to official resources by default. Do not copy or host third-party textbooks, papers, videos or notes unless the individual resource's license or written permission clearly allows redistribution. Check attribution, non-commercial, share-alike and no-derivatives conditions before reuse.
 
+## Phase 2
+- Search resources by title and keywords
+- Filter by learning level and subject
+- Responsive resource cards and empty-search feedback
+- Resource entries maintained in a simple JavaScript catalogue
+- Official links open separately; reuse permissions are respected
+
 ## Next phases
 1. Searchable resource catalogue and subject/class filters
 2. Admin-managed resource submissions and review
