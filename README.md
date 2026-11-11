@@ -37,3 +37,9 @@ EduZone links to official resources by default. Do not copy or host third-party 
 5. Carefully scoped AI study assistant
 
 Built as a separate project from KPM Traders.
+
+## Phase 3 — Admin Dashboard prototype
+- Add, edit and delete catalogue entries from the website
+- Validate resource URLs and escape displayed content
+- Save changes in the current browser using local storage
+- **Prototype limitation:** this is not a secure admin login and changes are not shared across devices or visitors. A protected backend and database are required before public production use.
