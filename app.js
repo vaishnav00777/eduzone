@@ -36,9 +36,11 @@ function renderResourceCatalog(){
   const text=[item.title,item.type,item.tags,item.subject,item.level].join(" ").toLocaleLowerCase();
   return (!query||text.includes(query))&&(level==="all"||item.level===level)&&(subject==="all"||item.subject===subject);
  });
+ const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
  grid.innerHTML=matches.map(item=>{
-  const description=(translations[lang]||translations.en)[item.descriptionKey]||translations.en[item.descriptionKey];
-  return '<article class="resource-card"><div class="resource-symbol" aria-hidden="true">'+item.icon+'</div><div><span class="resource-type">'+item.type+'</span><h3>'+item.title+'</h3><p>'+description+'</p><a href="'+item.url+'" target="_blank" rel="noopener noreferrer">'+labels.official+'</a></div></article>';
+  const description=item.description||((translations[lang]||translations.en)[item.descriptionKey]||translations.en[item.descriptionKey]||"");
+  let safeUrl="#";try{const parsed=new URL(item.url);if(["http:","https:"].includes(parsed.protocol))safeUrl=parsed.href}catch(e){}
+  return '<article class="resource-card"><div class="resource-symbol" aria-hidden="true">'+escapeHtml(item.icon||"📘")+'</div><div><span class="resource-type">'+escapeHtml(item.type||"Learning resource")+'</span><h3>'+escapeHtml(item.title)+'</h3><p>'+escapeHtml(description)+'</p><a href="'+escapeHtml(safeUrl)+'" target="_blank" rel="noopener noreferrer">'+labels.official+'</a></div></article>';
  }).join("");
  document.getElementById("resultsCount").textContent=matches.length+" "+labels.resultCount;
  document.getElementById("emptyState").hidden=matches.length!==0;
@@ -48,3 +50,6 @@ function renderResourceCatalog(){
 const originalSetLanguage=setLanguage;
 setLanguage=function(lang){originalSetLanguage(lang);const labels=catalogTranslations[lang]||catalogTranslations.en;document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{const key=el.dataset.i18nPlaceholder;if(labels[key])el.placeholder=labels[key]});renderResourceCatalog();};
 setLanguage(select.value||"en");
+
+// Shared database catalogue can replace the starter list after the API responds.
+window.setEduZoneResources=function(items){if(!Array.isArray(items))return;resourceCatalog.splice(0,resourceCatalog.length,...items);renderResourceCatalog();};
