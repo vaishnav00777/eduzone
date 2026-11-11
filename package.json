@@ -1,0 +1,10 @@
+{
+  "name": "eduzone",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "jose": "^6.1.0",
+    "pg": "^8.16.3"
+  }
+}
