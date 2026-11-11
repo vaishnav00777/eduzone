@@ -51,7 +51,47 @@
       <p class="license-note" data-i18n="licenseNote">EduZone links to official resources. We only host copies when redistribution rights are clearly permitted.</p>
     </section>
     <section class="about-section" id="about"><div class="about-icon">✨</div><div><span class="eyebrow" data-i18n="OURPROMISE">OUR PROMISE</span><h2 data-i18n="aboutTitle">Learning should be within everyone's reach.</h2><p data-i18n="aboutText">EduZone is being built as a free, student-friendly portal. Our goal is to make reliable learning resources easier to discover, whatever your class, course or exam goal.</p></div></section>
+  
+    <section class="admin-section" id="admin">
+      <div class="admin-entry">
+        <div><span class="eyebrow">ADMINISTRATION</span><h2>Manage EduZone resources</h2><p>Administrator access only. Visitors can continue using the public study library.</p></div>
+        <button class="btn primary" id="adminToggle" type="button" aria-expanded="false">Admin login</button>
+      </div>
+      <div class="admin-panel" id="adminPanel" hidden>
+        <div id="adminSignedOut">
+          <h3>Administrator sign in</h3>
+          <p class="admin-help">A secure sign-in link will be sent to the registered administrator email.</p>
+          <form id="adminLoginForm" class="admin-form">
+            <label>Email address<input id="adminEmail" type="email" value="vaishnavs56758@gmail.com" readonly required></label>
+            <button class="btn primary" id="sendMagicLink" type="submit">Send sign-in link</button>
+          </form>
+          <p class="admin-status" id="adminAuthStatus" role="status" aria-live="polite"></p>
+        </div>
+        <div id="adminSignedIn" hidden>
+          <div class="admin-user-row"><div><strong>Administrator signed in</strong><span id="adminIdentity"></span></div><button class="btn secondary" id="adminSignOut" type="button">Sign out</button></div>
+          <form id="resourceForm" class="admin-form">
+            <h3 id="formHeading">Add a learning resource</h3>
+            <input id="editResourceId" type="hidden">
+            <label>Resource title<input id="adminTitle" maxlength="180" required></label>
+            <div class="admin-form-row">
+              <label>Learning level<select id="adminLevel"><option value="school">School (Classes 1–12)</option><option value="college">College & diploma</option><option value="exam">Competitive exams</option></select></label>
+              <label>Subject<select id="adminSubject"><option value="general">General learning</option><option value="science">Science</option><option value="maths">Mathematics</option></select></label>
+            </div>
+            <label>Description<textarea id="adminDescription" rows="3" maxlength="1200" required></textarea></label>
+            <label>Official resource URL<input id="adminUrl" type="url" placeholder="https://..." required></label>
+            <div class="admin-form-row">
+              <label>Resource type<input id="adminType" maxlength="100" placeholder="Open textbook, video, notes..."></label>
+              <label>Icon / emoji<input id="adminIcon" maxlength="12" value="📘"></label>
+            </div>
+            <div class="admin-actions"><button class="btn primary" id="saveResource" type="submit">Save resource</button><button class="btn secondary" id="cancelEdit" type="button" hidden>Cancel edit</button></div>
+            <p class="admin-status" id="adminStatus" role="status" aria-live="polite"></p>
+          </form>
+          <div class="admin-list-wrap"><div class="admin-list-heading"><h3>Shared resource catalogue</h3><span id="adminResourceCount">Loading…</span></div><div class="admin-resource-list" id="adminResourceList"></div></div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">E</span><span>EduZone</span></a><p data-i18n="footer">Learn. Practice. Grow. — A free study portal for everyone.</p><span>© <span id="year"></span> EduZone</span></footer>
-  <script src="app.js"></script>\n
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">E</span><span>EduZone</span></a><p data-i18n="footer">Learn. Practice. Grow. — A free study portal for everyone.</p><span><a href="#admin">Admin</a> · © <span id="year"></span> EduZone</span></footer>
+  <script src="app.js"></script>
+  <script type="module" src="auth.js"></script>
 </body></html>
