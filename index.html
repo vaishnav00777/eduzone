@@ -40,14 +40,14 @@
       </div>
     </section>
     <section class="library-section" id="library"><div class="section-heading"><div><span class="eyebrow" data-i18n="STARTLEARNING">START LEARNING</span><h2 data-i18n="libraryTitle">Your study library</h2></div><p data-i18n="libraryText">A growing collection of free and trusted learning resources.</p></div>
-      <div class="resource-grid">
-        <article class="resource-card"><div class="resource-symbol">📖</div><div><span class="resource-type">OFFICIAL TEXTBOOKS</span><h3>NCERT ePathshala</h3><p data-i18n="ncertText">Official school textbooks and learning materials.</p><a href="https://epathshala.nic.in/" target="_blank" rel="noopener">Visit ePathshala ↗</a></div></article>
-        <article class="resource-card"><div class="resource-symbol">🧩</div><div><span class="resource-type">SCHOOL LEARNING</span><h3>DIKSHA</h3><p data-i18n="dikshaText">Digital learning resources from India's education platform.</p><a href="https://diksha.gov.in/" target="_blank" rel="noopener">Visit DIKSHA ↗</a></div></article>
-        <article class="resource-card"><div class="resource-symbol">🧬</div><div><span class="resource-type">OPEN TEXTBOOK</span><h3>OpenStax Biology 2e</h3><p data-i18n="biologyText">A free college-level biology textbook.</p><a href="https://openstax.org/books/biology-2e/pages/preface" target="_blank" rel="noopener">Read textbook ↗</a></div></article>
-        <article class="resource-card"><div class="resource-symbol">➗</div><div><span class="resource-type">OPEN TEXTBOOK</span><h3>OpenStax College Algebra</h3><p data-i18n="algebraText">Free mathematics textbook for college learners.</p><a href="https://openstax.org/books/college-algebra-2e/pages/preface" target="_blank" rel="noopener">Read textbook ↗</a></div></article>
-        <article class="resource-card"><div class="resource-symbol">🌴</div><div><span class="resource-type">KERALA · SCHOOL</span><h3>Kerala SCERT</h3><p data-i18n="scertText">Find official Kerala school textbooks and materials.</p><a href="https://scert.kerala.gov.in/" target="_blank" rel="noopener">Visit SCERT ↗</a></div></article>
-        <article class="resource-card"><div class="resource-symbol">💻</div><div><span class="resource-type">UNIVERSITY COURSES</span><h3>SWAYAM</h3><p data-i18n="swayamText">Discover online courses from Indian institutions.</p><a href="https://www.swayam.gov.in/" target="_blank" rel="noopener">Visit SWAYAM ↗</a></div></article>
+      <div class="library-tools" aria-label="Filter study resources">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="resourceSearch" type="search" placeholder="Search by title, subject or keyword" data-i18n-placeholder="searchPlaceholder"></label>
+        <select id="levelFilter" aria-label="Filter by learning level"><option value="all" data-i18n="allLevels">All levels</option><option value="school" data-i18n="schoolLevel">School (Classes 1–12)</option><option value="college" data-i18n="collegeLevel">College & diploma</option><option value="exam" data-i18n="examLevel">Competitive exams</option></select>
+        <select id="subjectFilter" aria-label="Filter by subject"><option value="all" data-i18n="allSubjects">All subjects</option><option value="science" data-i18n="science">Science</option><option value="maths" data-i18n="maths">Mathematics</option><option value="general" data-i18n="general">General learning</option></select>
       </div>
+      <p class="results-count" id="resultsCount" aria-live="polite"></p>
+      <div class="resource-grid" id="resourceGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No matching resources. Try another search or filter.</p>
       <p class="license-note" data-i18n="licenseNote">EduZone links to official resources. We only host copies when redistribution rights are clearly permitted.</p>
     </section>
     <section class="about-section" id="about"><div class="about-icon">✨</div><div><span class="eyebrow" data-i18n="OURPROMISE">OUR PROMISE</span><h2 data-i18n="aboutTitle">Learning should be within everyone's reach.</h2><p data-i18n="aboutText">EduZone is being built as a free, student-friendly portal. Our goal is to make reliable learning resources easier to discover, whatever your class, course or exam goal.</p></div></section>
