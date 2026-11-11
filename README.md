@@ -38,8 +38,19 @@ EduZone links to official resources by default. Do not copy or host third-party 
 
 Built as a separate project from KPM Traders.
 
-## Phase 3 — Admin Dashboard prototype
-- Add, edit and delete catalogue entries from the website
-- Validate resource URLs and escape displayed content
-- Save changes in the current browser using local storage
-- **Prototype limitation:** this is not a secure admin login and changes are not shared across devices or visitors. A protected backend and database are required before public production use.
+## Phase 3 — Secure administrator and shared resource catalogue
+- Neon Managed Auth passwordless magic-link sign-in; public sign-ups are disabled
+- Same-origin authentication proxy to keep browser sessions on the EduZone site origin
+- Admin-only create, edit and delete operations, with server-side JWT verification and an explicit administrator-role/email check
+- Shared resource catalogue stored in the separate EduZone Neon database; public visitors can read it
+- Database credentials remain in Vercel server-side environment variables
+- The initial catalogue is seeded with official resource links; redistribution permissions must still be checked before hosting copies
+
+## Deployment configuration
+- Vercel environment variables: `DATABASE_URL` (sensitive), `NEON_AUTH_BASE_URL`, and `NEON_AUTH_JWKS_URL`
+- Vercel Node.js functions live in `api/`; dependencies are listed in `package.json`
+- Do not commit database URLs, passwords, or private keys
+- The administrator account is provisioned separately in Neon Auth; public registration is disabled
+
+## Verification status
+The production deployment must be tested end-to-end with a real email delivery, magic-link callback, session restoration and an authenticated resource change before the admin workflow is considered fully verified.
