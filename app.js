@@ -10,3 +10,41 @@ document.getElementById('menuToggle').addEventListener('click',()=>{const nav=do
 document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('mainNav').classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false')}));
 document.getElementById('year').textContent=new Date().getFullYear();
 let saved='en';try{saved=localStorage.getItem('eduzone-language')||'en'}catch(e){}setLanguage(saved);
+
+// EduZone Phase 2: searchable, filterable starter catalogue.
+// External resources are linked at their official source; no third-party files are copied.
+const resourceCatalog = [
+ {id:"ncert",title:"NCERT ePathshala",level:"school",subject:"general",tags:"school textbooks classes 1 2 3 4 5 6 7 8 9 10 11 12 india",type:"Official textbooks",descriptionKey:"ncertText",url:"https://epathshala.nic.in/",icon:"📖"},
+ {id:"diksha",title:"DIKSHA",level:"school",subject:"general",tags:"school digital learning classes india",type:"School learning",descriptionKey:"dikshaText",url:"https://diksha.gov.in/",icon:"🧩"},
+ {id:"biology",title:"OpenStax Biology 2e",level:"college",subject:"science",tags:"college biology life science textbook openstax",type:"Open textbook · CC BY-NC-SA 4.0",descriptionKey:"biologyText",url:"https://openstax.org/books/biology-2e/pages/preface",icon:"🧬"},
+ {id:"algebra",title:"OpenStax College Algebra",level:"college",subject:"maths",tags:"college mathematics algebra textbook openstax",type:"Open textbook · CC BY-NC-SA 4.0",descriptionKey:"algebraText",url:"https://openstax.org/books/college-algebra-2e/pages/preface",icon:"➗"},
+ {id:"scert",title:"Kerala SCERT",level:"school",subject:"general",tags:"kerala school textbooks malayalam classes",type:"Kerala · School",descriptionKey:"scertText",url:"https://scert.kerala.gov.in/",icon:"🌴"},
+ {id:"swayam",title:"SWAYAM",level:"college",subject:"general",tags:"university college online courses india",type:"University courses",descriptionKey:"swayamText",url:"https://www.swayam.gov.in/",icon:"💻"}
+];
+const catalogTranslations = {
+ en:{searchPlaceholder:"Search by title, subject or keyword",allLevels:"All levels",schoolLevel:"School (Classes 1–12)",collegeLevel:"College & diploma",examLevel:"Competitive exams",allSubjects:"All subjects",science:"Science",maths:"Mathematics",general:"General learning",resultCount:"resources found",noResults:"No matching resources. Try another search or filter.",official:"Open official resource ↗"},
+ ml:{searchPlaceholder:"പേര്, വിഷയം അല്ലെങ്കിൽ വാക്ക് തിരയുക",allLevels:"എല്ലാ തലങ്ങളും",schoolLevel:"സ്കൂൾ (ക്ലാസ് 1–12)",collegeLevel:"കോളേജ് & ഡിപ്ലോമ",examLevel:"മത്സര പരീക്ഷകൾ",allSubjects:"എല്ലാ വിഷയങ്ങളും",science:"ശാസ്ത്രം",maths:"ഗണിതം",general:"പൊതുപഠനം",resultCount:"വിഭവങ്ങൾ കണ്ടെത്തി",noResults:"വിഭവങ്ങൾ കണ്ടെത്താനായില്ല. തിരച്ചിൽ മാറ്റി നോക്കൂ.",official:"ഔദ്യോഗിക വിഭവം തുറക്കുക ↗"},
+ hi:{searchPlaceholder:"शीर्षक, विषय या शब्द खोजें",allLevels:"सभी स्तर",schoolLevel:"स्कूल (कक्षा 1–12)",collegeLevel:"कॉलेज और डिप्लोमा",examLevel:"प्रतियोगी परीक्षाएँ",allSubjects:"सभी विषय",science:"विज्ञान",maths:"गणित",general:"सामान्य अध्ययन",resultCount:"संसाधन मिले",noResults:"कोई संसाधन नहीं मिला। खोज या फ़िल्टर बदलें।",official:"आधिकारिक संसाधन खोलें ↗"}
+};
+function renderResourceCatalog(){
+ const grid=document.getElementById("resourceGrid");
+ if(!grid)return;
+ const lang=select.value||"en", labels=catalogTranslations[lang]||catalogTranslations.en;
+ const query=(document.getElementById("resourceSearch").value||"").trim().toLocaleLowerCase();
+ const level=document.getElementById("levelFilter").value, subject=document.getElementById("subjectFilter").value;
+ const matches=resourceCatalog.filter(item=>{
+  const text=[item.title,item.type,item.tags,item.subject,item.level].join(" ").toLocaleLowerCase();
+  return (!query||text.includes(query))&&(level==="all"||item.level===level)&&(subject==="all"||item.subject===subject);
+ });
+ grid.innerHTML=matches.map(item=>{
+  const description=(translations[lang]||translations.en)[item.descriptionKey]||translations.en[item.descriptionKey];
+  return '<article class="resource-card"><div class="resource-symbol" aria-hidden="true">'+item.icon+'</div><div><span class="resource-type">'+item.type+'</span><h3>'+item.title+'</h3><p>'+description+'</p><a href="'+item.url+'" target="_blank" rel="noopener noreferrer">'+labels.official+'</a></div></article>';
+ }).join("");
+ document.getElementById("resultsCount").textContent=matches.length+" "+labels.resultCount;
+ document.getElementById("emptyState").hidden=matches.length!==0;
+ document.getElementById("emptyState").textContent=labels.noResults;
+}
+["resourceSearch","levelFilter","subjectFilter"].forEach(id=>document.getElementById(id).addEventListener(id==="resourceSearch"?"input":"change",renderResourceCatalog));
+const originalSetLanguage=setLanguage;
+setLanguage=function(lang){originalSetLanguage(lang);const labels=catalogTranslations[lang]||catalogTranslations.en;document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{const key=el.dataset.i18nPlaceholder;if(labels[key])el.placeholder=labels[key]});renderResourceCatalog();};
+setLanguage(select.value||"en");
