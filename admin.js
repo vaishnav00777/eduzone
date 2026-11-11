@@ -9,7 +9,7 @@
   const safeText=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   const safeUrl=value=>{try{const u=new URL(value);return ["https:","http:"].includes(u.protocol)?u.href:null}catch(e){return null}};
   function loadSaved(){
-    try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null");if(Array.isArray(saved)&&saved.length){resourceCatalog.splice(0,resourceCatalog.length,...saved)}}catch(e){}
+    try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null");if(Array.isArray(saved)){resourceCatalog.splice(0,resourceCatalog.length,...saved)}}catch(e){}
   }
   function saveAll(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(resourceCatalog));return true}catch(e){$("adminStatus").textContent="Could not save. Browser storage may be full or disabled.";return false}}
   function render(){
