@@ -27,3 +27,33 @@
 .admin-resource-row>div:first-child{display:grid;gap:4px;min-width:0}.admin-resource-row strong{font-size:13px;overflow-wrap:anywhere}.admin-resource-row span{font-size:11px;color:var(--muted)}
 .admin-row-actions{display:flex;gap:7px;flex-shrink:0}.admin-row-actions button{border:1px solid var(--line);background:white;border-radius:7px;padding:7px 10px;color:var(--blue);font:700 11px 'DM Sans',sans-serif;cursor:pointer}.admin-row-actions .delete-action{color:#b42318}
 @media(max-width:600px){.admin-section{padding:0 18px;margin-bottom:55px}.admin-entry{align-items:flex-start;flex-direction:column}.admin-panel{padding:17px}.admin-form-row{grid-template-columns:1fr}.admin-resource-row{align-items:flex-start;flex-direction:column;width:100%}.admin-row-actions{width:100%}.admin-row-actions button{flex:1}}
+
+
+/* EduZone secure admin access */
+.admin-section{max-width:1112px;margin:0 auto 80px;padding:0 24px}
+.admin-entry{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid var(--line);border-radius:15px;padding:22px 25px;background:#fff}
+.admin-entry h2{font:800 23px Manrope,sans-serif;margin:7px 0}
+.admin-entry p,.admin-help{color:var(--muted);font-size:13px;margin:0}
+.admin-panel{margin-top:15px;padding:25px;border:1px solid var(--line);border-radius:15px;background:#fff}
+.admin-form{max-width:720px}.admin-form h3,.admin-list-heading h3{font:700 18px Manrope,sans-serif;margin:0 0 17px}
+.admin-form label{display:grid;gap:7px;margin-bottom:13px;font-size:12px;font-weight:700;color:#475467}
+.admin-form input,.admin-form select,.admin-form textarea{width:100%;min-height:42px;padding:10px 12px;border:1px solid #dfe6f1;border-radius:8px;background:white;color:var(--navy);font:500 13px 'DM Sans',sans-serif}
+.admin-form textarea{resize:vertical}
+.admin-form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:7px}
+.admin-status{font-size:12px;color:#16734b;margin:10px 0 0;min-height:16px}
+.admin-status.is-error{color:#b42318}
+.admin-list-wrap{margin-top:30px;border-top:1px solid var(--line);padding-top:22px}
+.admin-list-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.admin-list-heading span,.admin-user-row span{font-size:12px;color:var(--muted)}
+.admin-resource-list{display:grid;gap:8px}
+.admin-resource-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:9px}
+.admin-resource-row>div:first-child{display:grid;gap:4px;min-width:0}
+.admin-resource-row strong{font-size:13px;overflow-wrap:anywhere}
+.admin-row-actions{display:flex;gap:7px;flex-shrink:0}
+.admin-row-actions button{border:1px solid var(--line);background:white;border-radius:7px;padding:7px 10px;color:var(--blue);font:700 11px 'DM Sans',sans-serif;cursor:pointer}
+.admin-row-actions .delete-action{color:#b42318}
+.admin-user-row{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:25px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.admin-user-row>div{display:grid;gap:5px}
+.admin-panel button:disabled{opacity:.6;cursor:wait}
+@media(max-width:600px){.admin-section{padding:0 18px;margin-bottom:55px}.admin-entry{align-items:flex-start;flex-direction:column}.admin-panel{padding:17px}.admin-form-row{grid-template-columns:1fr}.admin-resource-row{align-items:flex-start;flex-direction:column;width:100%}.admin-row-actions{width:100%}.admin-row-actions button{flex:1}.admin-user-row{align-items:flex-start;flex-direction:column}}
