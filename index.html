@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#155eef">
+  <meta name="description" content="EduZone — free learning resources for school, college and competitive exams.">
+  <title>EduZone — Learn. Practice. Grow.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="EduZone home"><span class="brand-mark">E</span><span>EduZone</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav" class="main-nav">
+      <a href="#school" data-i18n="school">School</a><a href="#college" data-i18n="college">College</a>
+      <a href="#exams" data-i18n="exams">Competitive Exams</a><a href="#library" data-i18n="library">Study Library</a>
+    </nav>
+    <label class="language-label"><span data-i18n="language">Language</span>
+      <select id="languageSelect" aria-label="Choose language"><option value="en">English</option><option value="ml">മലയാളം</option><option value="hi">हिन्दी</option></select>
+    </label>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i18n="eyebrow">A free learning space for every student</span>
+        <h1 data-i18n="heroTitle">Your learning journey starts here.</h1>
+        <p data-i18n="heroText">Find study materials, practise questions and build confidence — from school to college and beyond.</p>
+        <div class="hero-actions"><a class="btn primary" href="#library" data-i18n="explore">Explore resources</a><a class="btn secondary" href="#about" data-i18n="how">How it works</a></div>
+        <div class="hero-note"><span>✓</span> <span data-i18n="freeNote">Free to access · Made for learners across India</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="book">📚</div><div class="float-card card-a">✏️ <b>Learn</b></div><div class="float-card card-b">🎯 <b>Practise</b></div><div class="float-card card-c">🌱 <b>Grow</b></div></div>
+    </section>
+    <section class="trust-row"><div><strong>01</strong><span data-i18n="trust1">School learning</span></div><div><strong>02</strong><span data-i18n="trust2">College resources</span></div><div><strong>03</strong><span data-i18n="trust3">Exam preparation</span></div><div><strong>04</strong><span data-i18n="trust4">Multiple languages</span></div></section>
+    <section class="section" id="school"><div class="section-heading"><div><span class="eyebrow" data-i18n="forEveryone">LEARNING FOR EVERYONE</span><h2 data-i18n="pathTitle">Choose your learning path</h2></div><p data-i18n="pathText">Start with the stage or goal that matters to you.</p></div>
+      <div class="path-grid">
+        <article class="path-card"><div class="path-icon blue">🏫</div><span class="small-tag" data-i18n="classes">CLASSES 1–12</span><h3 data-i18n="schoolTitle">School</h3><p data-i18n="schoolText">Explore school subjects, revision notes and practice activities.</p><a href="#library" data-i18n="browse">Browse resources →</a></article>
+        <article class="path-card" id="college"><div class="path-icon purple">🎓</div><span class="small-tag" data-i18n="degree">DEGREE & DIPLOMA</span><h3 data-i18n="collegeTitle">College</h3><p data-i18n="collegeText">Build subject knowledge with open textbooks and course materials.</p><a href="#library" data-i18n="browse">Browse resources →</a></article>
+        <article class="path-card" id="exams"><div class="path-icon orange">🏆</div><span class="small-tag" data-i18n="testPrep">TEST PREPARATION</span><h3 data-i18n="examTitle">Competitive exams</h3><p data-i18n="examText">Prepare with practice questions and trusted learning links.</p><a href="#library" data-i18n="browse">Browse resources →</a></article>
+      </div>
+    </section>
+    <section class="library-section" id="library"><div class="section-heading"><div><span class="eyebrow" data-i18n="STARTLEARNING">START LEARNING</span><h2 data-i18n="libraryTitle">Your study library</h2></div><p data-i18n="libraryText">A growing collection of free and trusted learning resources.</p></div>
+      <div class="resource-grid">
+        <article class="resource-card"><div class="resource-symbol">📖</div><div><span class="resource-type">OFFICIAL TEXTBOOKS</span><h3>NCERT ePathshala</h3><p data-i18n="ncertText">Official school textbooks and learning materials.</p><a href="https://epathshala.nic.in/" target="_blank" rel="noopener">Visit ePathshala ↗</a></div></article>
+        <article class="resource-card"><div class="resource-symbol">🧩</div><div><span class="resource-type">SCHOOL LEARNING</span><h3>DIKSHA</h3><p data-i18n="dikshaText">Digital learning resources from India's education platform.</p><a href="https://diksha.gov.in/" target="_blank" rel="noopener">Visit DIKSHA ↗</a></div></article>
+        <article class="resource-card"><div class="resource-symbol">🧬</div><div><span class="resource-type">OPEN TEXTBOOK</span><h3>OpenStax Biology 2e</h3><p data-i18n="biologyText">A free college-level biology textbook.</p><a href="https://openstax.org/books/biology-2e/pages/preface" target="_blank" rel="noopener">Read textbook ↗</a></div></article>
+        <article class="resource-card"><div class="resource-symbol">➗</div><div><span class="resource-type">OPEN TEXTBOOK</span><h3>OpenStax College Algebra</h3><p data-i18n="algebraText">Free mathematics textbook for college learners.</p><a href="https://openstax.org/books/college-algebra-2e/pages/preface" target="_blank" rel="noopener">Read textbook ↗</a></div></article>
+        <article class="resource-card"><div class="resource-symbol">🌴</div><div><span class="resource-type">KERALA · SCHOOL</span><h3>Kerala SCERT</h3><p data-i18n="scertText">Find official Kerala school textbooks and materials.</p><a href="https://scert.kerala.gov.in/" target="_blank" rel="noopener">Visit SCERT ↗</a></div></article>
+        <article class="resource-card"><div class="resource-symbol">💻</div><div><span class="resource-type">UNIVERSITY COURSES</span><h3>SWAYAM</h3><p data-i18n="swayamText">Discover online courses from Indian institutions.</p><a href="https://www.swayam.gov.in/" target="_blank" rel="noopener">Visit SWAYAM ↗</a></div></article>
+      </div>
+      <p class="license-note" data-i18n="licenseNote">EduZone links to official resources. We only host copies when redistribution rights are clearly permitted.</p>
+    </section>
+    <section class="about-section" id="about"><div class="about-icon">✨</div><div><span class="eyebrow" data-i18n="OURPROMISE">OUR PROMISE</span><h2 data-i18n="aboutTitle">Learning should be within everyone's reach.</h2><p data-i18n="aboutText">EduZone is being built as a free, student-friendly portal. Our goal is to make reliable learning resources easier to discover, whatever your class, course or exam goal.</p></div></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">E</span><span>EduZone</span></a><p data-i18n="footer">Learn. Practice. Grow. — A free study portal for everyone.</p><span>© <span id="year"></span> EduZone</span></footer>
+  <script src="app.js"></script>
+</body></html>
